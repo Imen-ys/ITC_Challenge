@@ -3,13 +3,14 @@ import TextAreaField from "./TextAreaField";
 
 export default function ClientForm() {
   return (
-    <div className="bg-white rounded-2xl shadow p-6">
+    <div className="bg-white rounded-2xl shadow p-6 w-full">
+      <h1 className="text-2xl font-bold text-gray-800 mb-4">Add Client</h1>
 
       <div className="grid md:grid-cols-2 gap-4">
 
         <InputField label="Full Name" placeholder="Johnathan Doe" />
 
-        <InputField label="Phone Number" placeholder="+1 (555) 000-0000" />
+        <InputField label="Phone Number" placeholder="+213 073 456 789" />
 
         <div className="md:col-span-2">
           <InputField label="Address" placeholder="123 Business Ave, Suite 100" />

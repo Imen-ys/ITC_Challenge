@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Sidebar, Header, SearchBar, PatientTable , ManagePatients} from "../features/script";
+import { Sidebar, SearchBar, PatientTable , ManagePatients} from "../features/script";
 import { Nav } from "../ui/script";
 
 const patientsData = [

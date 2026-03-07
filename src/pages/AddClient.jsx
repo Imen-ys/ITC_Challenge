@@ -4,7 +4,7 @@ function AddClient() {
     return (
         <div>
         <Nav />
-        <div className="flex w-full ">
+        <div className="flex w-full gap-2">
         <Sidebar />
         <AddClientForm />
         </div>

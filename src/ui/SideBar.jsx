@@ -3,25 +3,8 @@ export default function Sidebar() {
     <aside className="w-64 bg-white border-r hidden md:flex flex-col justify-between">
       
       <div>
-        <div className="p-6 font-bold text-xl">
-          Nexus Admin
-        </div>
 
-        <nav className="space-y-2 px-4">
-
-          <SidebarItem label="Dashboard" />
-          <SidebarItem label="Profile" active />
-          <SidebarItem label="Appointments" />
-          <SidebarItem label="Settings" />
-
-        </nav>
-
-        <div className="mt-6 border-t pt-4 px-4">
-          <SidebarItem label="Settings" />
-        </div>
-      </div>
-
-      <div className="p-4 flex items-center gap-3 border-t">
+<div className="p-4 flex items-center gap-3 border-t">
         <img
           src="https://i.pravatar.cc/40"
           className="w-10 h-10 rounded-full"
@@ -31,6 +14,18 @@ export default function Sidebar() {
           <p className="text-xs text-gray-500">Admin Account</p>
         </div>
       </div>
+        <nav className="space-y-2 px-4">
+
+          <SidebarItem label="Dashboard" />
+          <SidebarItem label="Profile" active />
+          <SidebarItem label="Appointments" />
+          <SidebarItem label="Settings" />
+
+        </nav>
+
+      </div>
+
+      
 
     </aside>
   );
