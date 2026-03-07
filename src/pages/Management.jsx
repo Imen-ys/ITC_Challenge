@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Sidebar, Header, SearchBar, PatientTable , ManagePatients} from "../features/script";
+import { Nav } from "../ui/script";
 
 const patientsData = [
   { name: "Alice Stevenson", email: "alice@example.com", id: "#P-9201", phone: "(555) 123-4567", visit: "Oct 24, 2023", status: "Stable" },
@@ -17,7 +18,7 @@ export default function Management() {
 
   return (
     <>
-      <Header />
+      < Nav />
       <div className="flex">
         <Sidebar />
         <div className="w-full p-4">

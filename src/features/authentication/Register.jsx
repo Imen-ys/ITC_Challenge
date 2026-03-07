@@ -5,12 +5,7 @@ export default function Register() {
     <div className="min-h-screen bg-gray-100 flex flex-col">
       {/* HEADER */}
       <header className="flex justify-between items-center px-6 py-4 bg-white border-b">
-        <div className="flex items-center gap-2">
-          <div className="bg-blue-600 text-white p-2 rounded-lg font-bold">
-            +
-          </div>
-          <h1 className="font-semibold text-lg">MedConnect</h1>
-        </div>
+        
 
         <p className="text-sm text-gray-500">
           Already have an account?{" "}

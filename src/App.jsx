@@ -1,15 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css'
-import {LoginForm , Register  }from './features/script';
-import { Management , AddClient} from "./script";
+import { Management , AddClient , LoginPage , SingUp} from "./script";
 function App() {
 
   return (
     <>
       <Router>
           <Routes>
-            <Route path="/" element={<LoginForm />} />
-            <Route path="/register" element={<Register />} />
+            <Route path="/" element={<LoginPage />} />
+            <Route path="/register" element={<SingUp />} />
             <Route path="/management" element={<Management />} />
             <Route path="/add-client" element={<AddClient />} />
           </Routes>

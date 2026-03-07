@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Lock, Eye, EyeOff, HelpCircle } from "lucide-react";
+import { Mail, Lock, Eye, EyeOff } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function LoginForm() {
@@ -7,14 +7,7 @@ export default function LoginForm() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-between">
-      <header className="flex justify-between items-center px-6 py-4">
-        <div className="flex items-center gap-2">
-          <div className="bg-blue-600 text-white p-2 rounded-lg">+</div>
-          <span className="font-semibold text-lg">HealthPortal</span>
-        </div>
 
-        <HelpCircle className="text-gray-500 cursor-pointer" />
-      </header>
 
       <div className="flex flex-1 items-center justify-center px-4">
         <div className="bg-white shadow-lg rounded-2xl w-full max-w-md p-8">
