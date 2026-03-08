@@ -28,7 +28,7 @@ export default function EditClient() {
 
         console.log("Updated Patient:", form);
 
-        navigate("/");
+        navigate("/management");
     };
 
     return (
