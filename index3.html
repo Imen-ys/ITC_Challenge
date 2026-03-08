@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pilly — Smart Health Companion</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* RESET */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Montserrat", sans-serif;
+        line-height: 1.6;
+        color: #0a1f44;
+        background: #f5f5f5;
+        scroll-behavior: smooth;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      img,
+      video {
+        max-width: 100%;
+        display: block;
+        border-radius: 15px;
+      }
+
+      /* NAVBAR */
+      .navbar {
+        width: 100%;
+        background: #0a1f44;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 40px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+      .navbar ul {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+      }
+      .navbar ul li a {
+        color: #fff;
+        font-weight: 600;
+        padding: 8px 0;
+        transition: 0.3s;
+        position: relative;
+      }
+      .navbar ul li a:hover {
+        color: #00cfff;
+      }
+      .navbar ul li a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -3px;
+        width: 0;
+        height: 3px;
+        background: #00cfff;
+        transition: 0.3s;
+      }
+      .navbar ul li a:hover::after {
+        width: 100%;
+      }
+      .nav-logo img {
+        height: 50px;
+      }
+
+      /* VIDEO HERO UNDER NAVBAR */
+      #video-hero {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        padding: 80px 20px;
+        gap: 30px;
+      }
+      .video-left {
+        flex: 1;
+        min-width: 300px;
+        background: #00cfff;
+        color: #fff;
+        padding: 40px;
+        border-radius: 20px;
+      }
+      .video-left h1 {
+        font-size: 40px;
+        margin-bottom: 20px;
+      }
+      .video-left p {
+        font-size: 18px;
+        line-height: 1.4;
+      }
+      .video-left button {
+        margin-top: 15px;
+        padding: 12px 28px;
+        border: none;
+        border-radius: 25px;
+        background: #0077aa;
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .video-left button:hover {
+        background: #005f80;
+        transform: translateY(-2px);
+      }
+      .video-right {
+        flex: 1;
+        min-width: 300px;
+        text-align: center;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .video-right video {
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      /* PHONES + QR BEFORE FOOTER */
+      #download {
+        padding: 80px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #e0f7ff;
+        border-radius: 20px;
+        margin-top: 60px;
+      }
+      #download h2 {
+        margin-bottom: 40px;
+      }
+      .container {
+        position: relative;
+        width: 900px;
+        max-width: 100%;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .qr-code {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+        opacity: 0;
+        transition: 1s;
+      }
+      .qr-code.visible {
+        opacity: 1;
+      }
+      .qr-code img {
+        width: 150px;
+        height: 150px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+      .phone {
+        position: absolute;
+        width: 200px;
+        transition: 0.5s;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        border-radius: 20px;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      .phone.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* phone positions */
+      .p1 {
+        left: 0;
+        top: 50px;
+        transform: rotate(-20deg);
+      }
+      .p2 {
+        left: 180px;
+        top: 20px;
+        transform: rotate(-10deg);
+      }
+      .p3 {
+        left: 360px;
+        top: 0;
+        transform: rotate(0deg);
+      }
+      .phone:hover {
+        transform: scale(1.05) rotate(0deg);
+        z-index: 10;
+      }
+
+      /* OTHER SECTIONS */
+      section {
+        padding: 80px 20px;
+      }
+      section h2 {
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: 50px;
+        color: #0a1f44;
+      }
+
+      /* ABOUT US */
+      #about-us {
+        background: #d6f0f8;
+        border-radius: 20px;
+        margin: 40px 0;
+        padding: 60px 20px;
+      }
+
+      /* HOW IT WORKS */
+      .steps {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .step {
+        background: #fff;
+        border-radius: 20px;
+        padding: 30px;
+        width: 260px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        transition: 0.4s;
+        text-align: center;
+        cursor: pointer;
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      .step.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .step:hover {
+        transform: scale(1.05);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      }
+      .step img {
+        margin-bottom: 18px;
+      }
+      .step h3 {
+        color: #0077aa;
+        margin-bottom: 12px;
+      }
+
+      /* FEATURES */
+      .features {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .feature {
+        background: #fff;
+        border-radius: 20px;
+        padding: 25px;
+        width: 240px;
+        text-align: center;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      .feature.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .feature:hover {
+        transform: scale(1.05);
+        box-shadow: 0 22px 45px rgba(0, 0, 0, 0.15);
+      }
+      .feature h4 {
+        color: #0077aa;
+        margin: 14px 0;
+      }
+
+      /* REVIEWS */
+      .reviews {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .review {
+        background: #fff;
+        border-radius: 20px;
+        padding: 25px;
+        width: 280px;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      .review.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .review:hover {
+        transform: scale(1.03);
+        box-shadow: 0 22px 40px rgba(0, 0, 0, 0.15);
+      }
+      .review p {
+        font-style: italic;
+        margin-bottom: 12px;
+      }
+      .review span {
+        font-weight: 600;
+        color: #0077aa;
+      }
+
+      /* PRODUCTS */
+      .product-list {
+        display: flex;
+        gap: 28px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .product {
+        background: #fff;
+        border-radius: 20px;
+        padding: 24px;
+        width: 230px;
+        text-align: center;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+        transition: 0.4s;
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      .product.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .product:hover {
+        transform: scale(1.07);
+        box-shadow: 0 22px 45px rgba(0, 0, 0, 0.15);
+      }
+      .product h4 {
+        color: #0077aa;
+        margin: 14px 0;
+      }
+
+      /* CONTACTS */
+      #contacts {
+        background: #f0f8ff;
+        border-radius: 20px;
+        margin: 40px 0;
+        padding: 60px 20px;
+        text-align: center;
+      }
+      #contacts p {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      /* FOOTER */
+      footer {
+        background: #091d3c;
+        color: #e1e8f5;
+        padding: 64px 48px 18px;
+        border-radius: 20px;
+      }
+      .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 48px;
+        justify-content: space-between;
+      }
+      .footer-col {
+        flex: 1;
+        min-width: 200px;
+      }
+      .footer-col h4 {
+        font-size: 18px;
+        margin-bottom: 14px;
+        font-weight: 600;
+      }
+      .footer-col ul {
+        list-style: none;
+      }
+      .footer-col ul li {
+        margin-bottom: 10px;
+      }
+      .footer-col ul li a {
+        color: #e1e8f5;
+        transition: 0.3s;
+      }
+      .footer-col ul li a:hover {
+        color: #00cfff;
+      }
+      .footer-bottom {
+        margin-top: 32px;
+        border-top: 1px solid #234269;
+        padding-top: 16px;
+        text-align: center;
+        font-size: 14px;
+      }
+      .social-icons {
+        display: flex;
+        gap: 18px;
+        margin-top: 12px;
+      }
+      .social-icons a {
+        font-size: 20px;
+        color: #00cfff;
+        transition: 0.3s;
+      }
+      .social-icons a:hover {
+        color: #fff;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        .navbar {
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+        }
+        #video-hero {
+          flex-direction: column;
+        }
+        .video-left,
+        .video-right {
+          margin: 0 auto;
+        }
+      }
+      @media (max-width: 800px) {
+        .container {
+          height: 300px;
+        }
+        .phone {
+          width: 120px;
+        }
+        .p1 {
+          left: 0;
+          top: 40px;
+        }
+        .p2 {
+          left: 140px;
+          top: 10px;
+        }
+        .p3 {
+          left: 280px;
+          top: 0;
+        }
+        .qr-code {
+          right: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <ul class="nav-left">
+        <li><a href="#video-hero">Home</a></li>
+        <li><a href="#about-us">About Us</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+      </ul>
+      <div class="nav-logo">
+        <a href="#video-hero"
+          ><img
+            src=""
+            alt="Pilly Logo"
+        /></a>
+      </div>
+      <ul class="nav-right">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contacts">Contacts</a></li>
+      </ul>
+    </nav>
+
+    <!-- VIDEO HERO -->
+    <section id="video-hero">
+      <div class="video-left">
+        <h1>Discover Pilly in Action</h1>
+        <p>
+          Watch how Pilly helps you track medications, monitor vitals, and stay
+          healthy every day.
+        </p>
+        <button>Watch Demo</button>
+      </div>
+      <div class="video-right">
+        <video src="pilly-demo.mp4" controls></video>
+      </div>
+    </section>
+
+    <!-- ABOUT US -->
+    <section id="about-us">
+      <h2>About Us</h2>
+      <p>
+        Pilly is your smart health companion, designed to simplify your wellness
+        journey. Track your medications, monitor your vitals, and gain insights
+        to improve your daily health routine.
+      </p>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works">
+      <h2>How It Works</h2>
+      <div class="steps">
+        <div class="step">
+          <img src="medications2.jpg" alt="Step 1" />
+          <h3>Track Medications</h3>
+          <p>Receive reminders and keep your schedule on track.</p>
+        </div>
+        <div class="step">
+          <img src="real time.jpg" alt="Step 2" />
+          <h3>Monitor Vitals</h3>
+          <p>Sync devices & view real‑time health data.</p>
+        </div>
+        <div class="step">
+          <img src="stay healthy.jpg" alt="Step 3" />
+          <h3>Analyze Progress</h3>
+          <p>Get insights to stay healthy longer.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features">
+      <h2>Features</h2>
+      <div class="features">
+        <div class="feature">
+          <h4>Medication Reminders</h4>
+          <p>Never miss a dose again.</p>
+        </div>
+        <div class="feature">
+          <h4>Vitals Tracking</h4>
+          <p>Monitor heart rate, blood pressure, and more.</p>
+        </div>
+        <div class="feature">
+          <h4>Reports & Analytics</h4>
+          <p>Detailed health reports in one place.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews">
+      <h2>Reviews</h2>
+      <div class="reviews">
+        <div class="review">
+          <p>"Pilly changed the way I manage my health!"</p>
+          <span>- John Doe</span>
+        </div>
+        <div class="review">
+          <p>"I love the medication reminders feature."</p>
+          <span>- Jane Smith</span>
+        </div>
+        <div class="review">
+          <p>"Tracking my vitals has never been easier."</p>
+          <span>- Alice Lee</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products">
+      <h2>Our Products</h2>
+      <div class="product-list">
+        <div class="product">
+          <img src="app.jpg" alt="App" />
+          <h4>Pilly App</h4>
+          <p>Unified health data & reminders.</p>
+        </div>
+        <div class="product">
+          <img
+            src="https://via.placeholder.com/150.png?text=Pilly+Device"
+            alt="Device"
+          />
+          <h4>Pilly Device</h4>
+          <p>Automates your health tracking.</p>
+        </div>
+        <div class="product">
+          <img
+            src="https://via.placeholder.com/150.png?text=Pilly+Monitor"
+            alt="Monitor"
+          />
+          <h4>Pilly Monitor</h4>
+          <p>Wearable vitals & alerts.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTS -->
+    <section id="contacts">
+      <h2>Contact Us</h2>
+      <p>
+        Email us at <a href="mailto:info@pilly.com">info@pilly.com</a> or visit
+        our support page.
+      </p>
+    </section>
+
+    <!-- PHONES + QR CODE BEFORE FOOTER -->
+    <section id="download">
+      <h2>Download Pilly App</h2>
+      <div class="container">
+        <div class="qr-code">
+          <img
+            src="https://via.placeholder.com/150.png?text=QR+Code"
+            alt="QR Code"
+          />
+          <p>Scan to Download</p>
+        </div>
+        <div class="phone p1">
+          <img
+            src="https://via.placeholder.com/120x240.png?text=Screen+1"
+            alt="Screen 1"
+          />
+        </div>
+        <div class="phone p2">
+          <img
+            src="https://via.placeholder.com/120x240.png?text=Screen+2"
+            alt="Screen 2"
+          />
+        </div>
+        <div class="phone p3">
+          <img
+            src="https://via.placeholder.com/120x240.png?text=Screen+3"
+            alt="Screen 3"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-col">
+          <h4>Pilly</h4>
+          <p>Your smart health companion — always by your side.</p>
+          <div class="social-icons">
+            <a href="#"><span>🐦</span></a>
+            <a href="#"><span>📘</span></a>
+            <a href="#"><span>📸</span></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#products">Pilly App</a></li>
+            <li><a href="#products">Pilly Device</a></li>
+            <li><a href="#products">Pilly Monitor</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about-us">About</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:info@pilly.com">info@pilly.com</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">&copy; 2026 Pilly — All Rights Reserved.</div>
+    </footer>
+
+    <script>
+      // Intersection Observer for animations
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.2 },
+      );
+
+      // Animate steps, features, reviews, products, phones, qr
+      document
+        .querySelectorAll(
+          ".step, .feature, .review, .product, .phone, .qr-code",
+        )
+        .forEach((el) => {
+          observer.observe(el);
+        });
+    </script>
+  </body>
+</html>
