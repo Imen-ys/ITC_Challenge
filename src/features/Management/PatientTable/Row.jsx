@@ -1,6 +1,6 @@
 import { Eye, FileText } from "lucide-react";
 import {StatusBadge} from "./script";
-
+import {Link} from "react-router-dom";
 export default function Row({ patient }) {
   return (
     <tr className="border-b hover:bg-gray-50">
@@ -19,7 +19,9 @@ export default function Row({ patient }) {
 
       <td className="flex gap-3 justify-center py-4">
         <Eye size={18} className="text-gray-500 cursor-pointer" />
-        <FileText size={18} className="text-gray-500 cursor-pointer" />
+        <Link to="/edit-client" state={patient}>
+          <FileText size={18} className="text-gray-500 cursor-pointer" />
+        </Link>
       </td>
     </tr>
   );
