@@ -1,13 +1,13 @@
 export default function DrClient() {
   return (
-    <div className="bg-white rounded-xl p-6 shadow">
+    <div className="bg-white rounded-xl p-6 shadow mr-[180px] ml-3">
 
       <h3 className="font-semibold mb-4">Upcoming Appointment</h3>
 
       <div className="flex flex-col md:flex-row gap-6">
 
         <img
-          src="https://randomuser.me/api/portraits/women/44.jpg"
+          src="https://images.unsplash.com/photo-1612349316228-5942a9b489c2"
           className="w-40 h-40 rounded-lg object-cover"
         />
 

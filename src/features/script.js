@@ -16,3 +16,4 @@ export { default as Message } from "./Message/Message";
 export { default as DrClient } from "./Client/DrClient";
 export {default as LeftSide} from "./Registration/LeftSide";
 export {default as EditClientForm} from "./Client/EditClientForm";
+export { default as MedicationCard } from "./Client/MedicationCard";
