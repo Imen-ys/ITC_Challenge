@@ -14,3 +14,4 @@ export {default as PersonnelInfromation} from './Profile/PersonnelInfromation'
 export { default as MessageButton } from "./Message/MessageButton";
 export { default as Message } from "./Message/Message";
 export { default as DrClient } from "./Client/DrClient";
+export {default as LeftSide} from "./Registration/LeftSide";

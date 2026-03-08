@@ -7,7 +7,7 @@ function ClientDashboard() {
         {/* < Nav /> */}
         <div className="flex">
             <Sidebar />
-            
+
         <div >
             <Header />
             <DrClient />
