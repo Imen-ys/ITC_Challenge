@@ -6,3 +6,4 @@ export {default as ClientDashboard } from "./pages/ClientDashboard";
 export {default as NewAppointment } from "./pages/NewAppointment";
 export {default as Profile } from "./pages/Profile";
 export {default as EditClientPage } from "./pages/EditClientPage";
+export {default as ClientVue } from "./pages/ClientVue";
