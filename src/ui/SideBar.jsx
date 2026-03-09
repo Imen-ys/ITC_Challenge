@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-
+import { ChatBot } from "../features/script";
 const menuItems = [
   { label: "Dashboard", path: "/management" },
   { label: "Profile", path: "/profile" },
@@ -30,7 +30,7 @@ export default function Sidebar() {
             <SidebarItem key={item.path} {...item} />
           ))}
         </nav>
-
+      <ChatBot /> 
       </div>
     </aside>
   );

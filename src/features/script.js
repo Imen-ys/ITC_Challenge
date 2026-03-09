@@ -26,3 +26,4 @@ export {default as Vitals } from "./Client/Vitals";
 export {default as SecuritySettings} from "./settings/SecuritySettings";
 export { default as ProfileVisibility } from "./settings/ProfileVisibility";
 export { default as ProfileForm } from "./settings/ProfileForm";
+export { default as ChatBot } from "./ChatBot/ChatBot";
