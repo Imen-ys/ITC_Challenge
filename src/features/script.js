@@ -23,3 +23,6 @@ export {default as MedicalNotes} from "./Client/MedicalNotes";
 export {default as Appointments} from "./Client/Appointments";
 export {default as Prescriptions} from "./Client/Prescriptions";
 export {default as Vitals } from "./Client/Vitals";
+export {default as SecuritySettings} from "./settings/SecuritySettings";
+export { default as ProfileVisibility } from "./settings/ProfileVisibility";
+export { default as ProfileForm } from "./settings/ProfileForm";

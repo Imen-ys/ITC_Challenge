@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css'
 import { Management , AddClient , LoginPage , SingUp , ClientDashboard , NewAppointment ,
-Profile , EditClientPage , ClientVue
+Profile , EditClientPage , ClientVue , Settings
 } from "./script";
 function App() {
 
@@ -18,6 +18,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/edit-client" element={<EditClientPage />} />
             <Route path="/client-vue" element={<ClientVue />} />
+            <Route path="/settings" element={<Settings />} />
           </Routes>
       </Router>
     </>
