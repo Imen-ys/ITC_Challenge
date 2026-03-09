@@ -1,5 +1,5 @@
 import { Sidebar } from "../features/script";
-import { Header , PersonalInfo  , DrClient , MedicationCard} from "../features/script";
+import { Header , PersonalInfo  , DrClient , MedicationCard , MapSearch} from "../features/script";
 function ClientDashboard() {
   return (
     <div>
@@ -33,8 +33,9 @@ function ClientDashboard() {
                 />
 
               </div>
-              </div>
+              <MapSearch />
 
+              </div>
 
       </div>
     </div>

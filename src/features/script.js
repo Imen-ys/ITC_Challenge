@@ -27,3 +27,4 @@ export {default as SecuritySettings} from "./settings/SecuritySettings";
 export { default as ProfileVisibility } from "./settings/ProfileVisibility";
 export { default as ProfileForm } from "./settings/ProfileForm";
 export { default as ChatBot } from "./ChatBot/ChatBot";
+export { default as MapSearch } from "./Map/MapSearch";
