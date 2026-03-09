@@ -125,11 +125,20 @@ export default function ClientForm() {
       <div className="flex justify-end gap-4 mt-6">
 
         <button
-          type="reset"
-          className="text-gray-500 hover:text-black"
-        >
-          Cancel
-        </button>
+  type="button"
+  onClick={() =>
+    setFormData({
+      fullName: "",
+      phone: "",
+      address: "",
+      age: "",
+      notes: ""
+    })
+  }
+  className="text-gray-500 hover:text-black"
+>
+  Cancel
+</button>
 
         <button
           type="submit"

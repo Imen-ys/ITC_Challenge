@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://fakestoreapi.com/auth/login";
+const API_URL = "http://127.0.0.1:8000/api/users/login/";
 
 export const LoginAPI = async (email, password) => {
     try {
